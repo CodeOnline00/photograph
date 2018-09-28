@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zjstu.photograph.mapper.UserMapper">
+	<select id="findAllUser" resultType="user">
+		select * from user
+	</select>
+	
+	<select id="findUserByName" resultType="user" parameterType="string" >
+		select * from user where nickname=#{nickname}
+	</select>
+	
+	<select id="add" parameterType="user">
+		replace into user values(#{id},#{nickname},#{password},#{mobile},#{portrait})
+	</select>
+</mapper>

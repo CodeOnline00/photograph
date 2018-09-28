@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zjstu.photograph.mapper.PhotographMapper">
+	
+	
+	<select id="add" parameterType="photograph">
+		insert into photograph values(null,null,#{title},#{description},#{keywords},#{image},null,now())
+	</select>
+	
+	<select id="all" resultType="photograph">
+		select * from photograph
+	</select>
+	
+	<select id="likeByKeywords" parameterType="string" resultType="photograph">
+		select * from photograph where keywords like "%"#{value}"%"
+	</select>
+	
+	<select id="deleteById" parameterType="int">
+		delete from photograph where id=#{value}
+	</select>
+	
+	
+	<select id="findById" parameterType="int" resultType="photograph">
+		select * from photograph where id=#{value}
+	</select>
+</mapper>
