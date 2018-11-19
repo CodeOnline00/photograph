@@ -1,0 +1,1 @@
+this is a detail file,its a test file which used by zjdev
